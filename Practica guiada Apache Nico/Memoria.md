@@ -14,4 +14,4 @@
 
 4.Paso:Comprobación del funcionamiento.
 - sudo systemctl status apache2
-
+- sudo ss -tulpn | grep apache2
