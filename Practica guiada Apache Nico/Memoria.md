@@ -1,4 +1,4 @@
-                                                        #Practica Guiada Apache Nico
+                                                        # Practica Guiada Apache Nico
 
 1.Paso: Conectamos nuestro ordenador con el pc
 ssh ls_nmunoz@192.168.22.10
