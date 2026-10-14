@@ -67,7 +67,7 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
  ##    Apartado 6
        
 **6.1 Se crea una página web básica personalizada con tu nombre.**
-       echo "<h1>Servidor de TU NOMBRE</h1>" | sudo tee /var/www/html/index.html
+       echo "<h1>servidor de tu nombre</h1>" | sudo tee /var/www/html/index.html
        
 **6.2 Se cambia el puerto por defecto de Apache (del 80 al 8080) modificando la configuración y comprobando que funciona.**
        sudo nano /etc/apache2/ports.conf
