@@ -46,14 +46,16 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
  Reload:Cuando quieres que el servidor no pare de funcionar usaria esta opcion encambio si quieres que se pause un tiempo usaria restart
 
  7. Paso: Apartado 5
-    1.Fichero de configuración principal = /etc/apache2/apache2.conf
-    2.Puertos en los que escucha Apache = /etc/apache2/ports.conf
-    3.Sitios disponibles (definidos, no necesariamente activos) = /etc/apache2/sites-available/
-    4.Sitios activos (enlaces simbólicos a sites-available) = /etc/apache2/sites-enabled/
-    5.Módulos disponibles y activos = /etc/apache2/mods-available/ y mods-enabled/
-    6.Fragmentos de configuración disponibles y activos = /etc/apache2/conf-available/ y conf-        enabled/
-    7.Variables de entorno (usuario y grupo de ejecución, etc.) = /etc/apache2/envvars
-    8.Directorio raíz por defecto (DocumentRoot) = /var/www/html/
-    9.Registro de accesos = /var/log/apache2/access.log
-    10.Registro de errores = /var/log/apache2/error.log
+       1. Iniciamos el servidor = sudo systemctl start apache2
+       2. Fichero de configuración principal = /etc/apache2/apache2.conf
+       3. Puertos en los que escucha Apache = /etc/apache2/ports.conf
+       4. Sitios disponibles (definidos, no necesariamente activos) = /etc/apache2/sites-available/
+       5. Sitios activos (enlaces simbólicos a sites-available) = /etc/apache2/sites-enabled/
+       6. Módulos disponibles y activos = /etc/apache2/mods-available/ y mods-enabled/
+       7. Fragmentos de configuración disponibles y activos = /etc/apache2/conf-available/ y conf-enabled/
+       8. Variables de entorno (usuario y grupo de ejecución, etc.) = /etc/apache2/envvars
+       9. Directorio raíz por defecto (DocumentRoot) = /var/www/html/
+       10. Registro de accesos = /var/log/apache2/access.log
+       11. Registro de errores = /var/log/apache2/error.log
+  
     
