@@ -1,4 +1,4 @@
-# `Practica Apache Nico`
+<img width="1021" height="554" alt="imagen" src="https://github.com/user-attachments/assets/1cb2e4a3-06a2-4226-abdd-db05682f93d0" /># `Practica Apache Nico`
 
 ## Apartado 1
 - Conectamos nuestro ordenador con el pc.
@@ -13,6 +13,7 @@
   **Instalamos Apache y revisamos la version instalada.**
 - sudo apt install apache2 -y
 - apache2 -v
+![cap1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20apt%20install%20apache2%20-y.png?raw=true)
 
   ¿Qué paquetes adicionales se han instalado como dependencias? (pista: revisa la salida de apt)
   Apache
@@ -27,6 +28,8 @@
 **Vamos a activar el firewall**
 sudo ufw status
 sudo ufw allow 'Apache'
+![cap2](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20ufw%20status%20y%20sudo%20ufw%20allow%20'Apache'%20PASO%205!.png?raw=true)
+
 
 ¿Qué diferencia hay entre los perfiles Apache, Apache Full y Apache Secure?
 Apache: Sirve para hacer pruebas
@@ -75,18 +78,19 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
        sudo apache2ctl configtest
        sudo systemctl reload apache2
        curl -I http://localhost:8080
+ ![cap3](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/6.2%20.2.png?raw=true)
        
 **6.3 Se configura un nombre de servidor (ServerName) para evitar avisos y se aplica la configuración.**
        echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
        sudo a2enconf servername
        sudo systemctl reload apache2
+![cap4](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/6.3.png?raw=true)
        
 **6.4 Definir nombre servidor.**
-
-
+![Cap5](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/6.4.png?raw=true)
 
 **6.5 Cambiar correo Administrador.**
-
+![cap5](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/6.5.png?raw=true)
 
 ## Apartado 7
 apache2ctl -M
@@ -105,9 +109,10 @@ Si desactivas un módulo del que depende otro, Apache detectará el problema y n
 sudo mkdir -p /var/www/sitio1 /var/www/sitio2
 echo "<h1>Bienvenido a SITIO 1</h1>" | sudo tee /var/www/sitio1/index.html
 echo "<h1>Bienvenido a SITIO 2</h1>" | sudo tee /var/www/sitio2/index.html
+![cap6](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/8.1.png?raw=true)
 
 **8.2. Crear los ficheros de configuración**
-
+![cap7](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/8.2.png?raw=true)
 
 **8.3. Activar los sitios y desactivar el de por defecto**
 sudo a2ensite sitio1.conf sitio2.conf
@@ -115,13 +120,14 @@ sudo a2dissite 000-default.conf
 sudo apache2ctl configtest
 sudo systemctl reload apache2
 apache2ctl -S
+![cap8](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/8.3.png?raw=true)
 **8.4. Resolución de nombres.**
 sudo nano /etc/apache2/sites-available/sitio2.conf
 
 **8.5. Pruebas**
 curl http://sitio1.local
 curl http://sitio2.local
-
+![cap9](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/8.5.png?raw=true)
 
 ¿Qué diferencia hay entre virtual hosts basados en nombre y basados en IP? ¿Cuál has usado?
 
@@ -139,3 +145,4 @@ sudo chmod 000 /var/www/sitio1/index.html
 curl http://sitio1.local
 sudo tail -n 20 /var/log/apache2/sitio1_error.log
 
+![cap10](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/Apartado%209.png?raw=true)
