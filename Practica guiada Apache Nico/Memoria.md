@@ -12,8 +12,10 @@
   **Instalamos Apache y revisamos la version instalada.**
 - sudo apt install apache2 -y
 - apache2 -v
+
 ![cap1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20apt%20install%20apache2%20-y.png?raw=true)
 
+  
   ¿Qué paquetes adicionales se han instalado como dependencias? (pista: revisa la salida de apt)
   Apache
 
@@ -27,8 +29,9 @@
 **Vamos a activar el firewall**
 sudo ufw status
 sudo ufw allow 'Apache'
-![cap2](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20ufw%20status%20y%20sudo%20ufw%20allow%20'Apache'%20PASO%205!.png?raw=true)
 
+
+![cap2](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20ufw%20status%20y%20sudo%20ufw%20allow%20'Apache'%20PASO%205!.png?raw=true)
 
 ¿Qué diferencia hay entre los perfiles Apache, Apache Full y Apache Secure?
 Apache: Sirve para hacer pruebas
