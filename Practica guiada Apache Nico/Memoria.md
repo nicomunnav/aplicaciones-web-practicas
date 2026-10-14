@@ -1,4 +1,3 @@
-<img width="1021" height="554" alt="imagen" src="https://github.com/user-attachments/assets/1cb2e4a3-06a2-4226-abdd-db05682f93d0" /># `Practica Apache Nico`
 
 ## Apartado 1
 - Conectamos nuestro ordenador con el pc.
