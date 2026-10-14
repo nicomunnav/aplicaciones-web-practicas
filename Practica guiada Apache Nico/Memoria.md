@@ -126,4 +126,16 @@ curl http://sitio2.local
 ¿Qué diferencia hay entre virtual hosts basados en nombre y basados en IP? ¿Cuál has usado?
 
 ## Apartado 9.
+ps aux | grep apache2
+grep -E "APACHE_RUN_(USER|GROUP)" /etc/apache2/envvars
+ls -ld /var/www/sitio1 /var/www/sitio1/index.html
+
+sudo chown -R www-data:www-data /var/www/sitio1
+sudo find /var/www/sitio1 -type d -exec chmod 755 {} \;
+sudo find /var/www/sitio1 -type f -exec chmod 644 {} \;
+
+**Prueba qué ocurre al poner chmod 000 a index.html (error 403) y consulta el error.log. Después restaura los permisos.**
+sudo chmod 000 /var/www/sitio1/index.html
+curl http://sitio1.local
+sudo tail -n 20 /var/log/apache2/sitio1_error.log
 
