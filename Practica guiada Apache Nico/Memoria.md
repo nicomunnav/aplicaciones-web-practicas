@@ -49,40 +49,41 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
       ![cap14](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20systemctl%20reload%20apache2.png?raw=true)
    5. **Arranque automático al iniciar el sistema = sudo systemctl enable apache2**
       ![cap15](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20systemctl%20enable%20apache2.png?raw=true)
-   7. **Desactiva el arranque automático** = sudo systemctl disable apache2
+   6. **Desactiva el arranque automático** = sudo systemctl disable apache2
       ![cap16](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20systemctl%20disable%20apache2.png?raw=true)
-   11. **Comprueba la sintaxis de la configuración** = apache2ctl configtest
+   7. **Comprueba la sintaxis de la configuración** = apache2ctl configtest
        ![cap17](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/apache2ctl%20configtest.png?raw=true)
-   13. **Muestra los sitios (virtual hosts) cargados** = apache2ctl -S
+   8. **Muestra los sitios (virtual hosts) cargados** = apache2ctl -S
        ![cap18](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/apache2ctl%20-s.png?raw=true)
-   15. **Lista los módulos cargados** = apache2ctl -M
+   9. **Lista los módulos cargados** = apache2ctl -M
        ![cap19](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/apache2ctl%20%20-M.png?raw=true)
-   17. **Activa / desactiva módulos** = a2enmod / a2dismod
-   18. **Activa / desactiva sitios** =  a2ensite / a2dissite
-   19. **Activa / desactiva fragmentos de configuración** = a2enconf / a2disconf
+   10. **Activa / desactiva módulos** = a2enmod / a2dismod
+   11. **Activa / desactiva sitios** =  a2ensite / a2dissite
+   12. **Activa / desactiva fragmentos de configuración** = a2enconf / a2disconf
 
  ¿Cuándo conviene usar reload en lugar de restart?
  Reload:Cuando quieres que el servidor no pare de funcionar usaria esta opcion encambio si quieres que se pause un tiempo usaria restart
 
 ##     Apartado 5
       
-       1. Iniciamos el servidor = sudo systemctl start apache2
-       2. Fichero de configuración principal = /etc/apache2/apache2.conf
-       3. Puertos en los que escucha Apache = /etc/apache2/ports.conf
-       4. Sitios disponibles (definidos, no necesariamente activos) = /etc/apache2/sites-available/
-       5. Sitios activos (enlaces simbólicos a sites-available) = /etc/apache2/sites-enabled/
-       6. Módulos disponibles y activos = /etc/apache2/mods-available/ y mods-enabled/
-       7. Fragmentos de configuración disponibles y activos = /etc/apache2/conf-available/ y conf-enabled/
-       8. Variables de entorno (usuario y grupo de ejecución, etc.) = /etc/apache2/envvars
-       9. Directorio raíz por defecto (DocumentRoot) = /var/www/html/
-       10. Registro de accesos = /var/log/apache2/access.log
-       11. Registro de errores = /var/log/apache2/error.log
+ **1. Iniciamos el servidor = sudo systemctl start apache2**
+       ![cap20](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/Sudo%20systemctl%20status%20apache%202.png?raw=true)
+ **2. Fichero de configuración principal = /etc/apache2/apache2.conf**
+ **4. Puertos en los que escucha Apache = /etc/apache2/ports.conf**
+ **5. Sitios disponibles (definidos, no necesariamente activos) = /etc/apache2/sites-available/**
+ **6. Sitios activos (enlaces simbólicos a sites-available) = /etc/apache2/sites-enabled/**
+ **7. Módulos disponibles y activos = /etc/apache2/mods-available/ y mods-enabled/**
+ **8. Fragmentos de configuración disponibles y activos = /etc/apache2/conf-available/ y conf-enabled/**
+ **9. Variables de entorno (usuario y grupo de ejecución, etc.) = /etc/apache2/envvars**
+ **10. Directorio raíz por defecto (DocumentRoot) = /var/www/html/**
+ **11. Registro de accesos = /var/log/apache2/access.log**
+ **12. Registro de errores = /var/log/apache2/error.log**
    
  ##    Apartado 6
        
 **6.1 Se crea una página web básica personalizada con tu nombre.**
        echo "<h1>servidor de tu nombre</h1>" | sudo tee /var/www/html/index.html
-       
+  ![cap30](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/Apartado%206%206.1.png?raw=true)     
 **6.2 Se cambia el puerto por defecto de Apache (del 80 al 8080) modificando la configuración y comprobando que funciona.**
        sudo nano /etc/apache2/ports.conf
        sudo nano /etc/apache2/sites-available/000-default.conf
