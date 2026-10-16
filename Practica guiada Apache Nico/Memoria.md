@@ -29,13 +29,8 @@
 7. [Módulos de Apache](#apartado-7)
 8. [Varios sitios web: Virtual Hosts](#apartado-8)
 9. [Permisos y propietarios](#apartado-9)
-10. [Seguridad del servidor](#apartado-10)
-11. [Diagnóstico y solución de errores](#apartado-11)
-12. [Conclusiones](#conclusiones)
 
 ---
-
-
 
 ## Apartado 1
 - Conectamos nuestro ordenador con el pc.
