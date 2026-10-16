@@ -16,7 +16,7 @@
 ![cap1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20apt%20install%20apache2%20-y.png?raw=true)
 
   
-  ¿Qué paquetes adicionales se han instalado como dependencias? (pista: revisa la salida de apt)
+  ¿Qué paquetes adicionales se han instalado como dependencias? 
   Apache
 
 ## Apartado 3
@@ -78,7 +78,11 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
  **10. Directorio raíz por defecto (DocumentRoot) = /var/www/html/**
  **11. Registro de accesos = /var/log/apache2/access.log**
  **12. Registro de errores = /var/log/apache2/error.log**
-   
+
+¿Por qué Apache usa enlaces simbólicos entre los directorios *-available y *-enabled?
+*-available:El almacén donde guardas todas las configuraciones de tus sitios o módulos, estén o no en uso.
+*-enabled:La carpeta activa donde solo pones atajos a los archivos que quieres que Apache lea y ejecute.
+
  ##    Apartado 6
        
 **6.1 Se crea una página web básica personalizada con tu nombre.**
@@ -112,6 +116,17 @@ sudo a2enmod headers
 sudo a2enmod ssl
 sudo systemctl restart apache2
 apache2ctl -M | grep -E "rewrite|headers|ssl"
+
+| Módulo | Función |
+| --- | --- |
+| `mod_rewrite` | Reescritura y redirección avanzada de URLs mediante reglas y expresiones regulares. |
+| `mod_ssl` | Proporciona soporte para conexiones seguras cifradas mediante HTTPS (TLS/SSL). |
+| `mod_headers` | Permite modificar, añadir o eliminar cabeceras HTTP de las peticiones y respuestas. |
+| `mod_alias` | Facilita la creación de redirecciones y el mapeo de rutas alternativas del sistema de ficheros. |
+| `mod_auth_basic` | Implementa autenticación de usuarios mediante el sistema tradicional de usuario y contraseña (HTTP Basic). |
+| `mod_status`** | Genera una página web interna con estadísticas en tiempo real sobre el rendimiento y estado del servidor. |
+| `mod_dir`** | Gestiona la búsqueda de ficheros índice por defecto (como `index.html` o `index.php`) en los directorios. |
+
 
 **¿Qué ocurre si desactivas un módulo del que depende otro?** 
 Si desactivas un módulo del que depende otro, Apache detectará el problema y no arrancará o fallará al intentar reiniciar el servicio, mostrando un error en los registros.
