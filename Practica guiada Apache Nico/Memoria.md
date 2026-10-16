@@ -1,3 +1,41 @@
+# Práctica guiada Apache
+
+### Instalación, configuración y securización de Apache en Ubuntu 24.04
+
+<br>
+
+**Módulo:** Aplicaciones Web
+
+**Alumno:** Nicolás Muñoz Navarro
+
+**Curso:** 2 SMX
+
+<br>
+---
+
+**Memoria de la actividad práctica**
+
+</div>
+
+---
+# Índice
+
+1. [Preparación del sistema](#apartado-1)
+2. [Instalación de Apache](#apartado-2)
+3. [Comprobación del funcionamiento](#apartado-3)
+4. [Comandos principales de administración](#apartado-4)
+5. [Ficheros y directorios importantes](#apartado-5)
+6. [Modificaciones típicas del servicio](#apartado-6)
+7. [Módulos de Apache](#apartado-7)
+8. [Varios sitios web: Virtual Hosts](#apartado-8)
+9. [Permisos y propietarios](#apartado-9)
+10. [Seguridad del servidor](#apartado-10)
+11. [Diagnóstico y solución de errores](#apartado-11)
+12. [Conclusiones](#conclusiones)
+
+---
+
+
 
 ## Apartado 1
 - Conectamos nuestro ordenador con el pc.
@@ -66,22 +104,26 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
 
 ##     Apartado 5
       
- **1. Iniciamos el servidor = sudo systemctl start apache2**
+ 1. **Iniciamos el servidor** = sudo systemctl start apache2
+       
        ![cap20](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/Sudo%20systemctl%20status%20apache%202.png?raw=true)
- **2. Fichero de configuración principal = /etc/apache2/apache2.conf**
- **4. Puertos en los que escucha Apache = /etc/apache2/ports.conf**
- **5. Sitios disponibles (definidos, no necesariamente activos) = /etc/apache2/sites-available/**
- **6. Sitios activos (enlaces simbólicos a sites-available) = /etc/apache2/sites-enabled/**
- **7. Módulos disponibles y activos = /etc/apache2/mods-available/ y mods-enabled/**
- **8. Fragmentos de configuración disponibles y activos = /etc/apache2/conf-available/ y conf-enabled/**
- **9. Variables de entorno (usuario y grupo de ejecución, etc.) = /etc/apache2/envvars**
- **10. Directorio raíz por defecto (DocumentRoot) = /var/www/html/**
- **11. Registro de accesos = /var/log/apache2/access.log**
- **12. Registro de errores = /var/log/apache2/error.log**
+ 
+ 
+ 2. **Fichero de configuración principal** = /etc/apache2/apache2.conf
+ 4. **Puertos en los que escucha Apache** = /etc/apache2/ports.conf
+ 5. **Sitios disponibles (definidos, no necesariamente activos)** = /etc/apache2/sites-available/
+ 6. **Sitios activos (enlaces simbólicos a sites-available)** = /etc/apache2/sites-enabled/
+ 7. **Módulos disponibles y activos** = /etc/apache2/mods-available/ y mods-enabled/
+ 8. **Fragmentos de configuración disponibles y activos** = /etc/apache2/conf-available/ y conf-enabled/
+ 9. **Variables de entorno (usuario y grupo de ejecució)** = /etc/apache2/envvars
+ 10. **Directorio raíz por defecto** = /var/www/html/
+ 11. **Registro de accesos** = /var/log/apache2/access.log
+ 12. **Registro de errores** = /var/log/apache2/error.log
 
 ¿Por qué Apache usa enlaces simbólicos entre los directorios *-available y *-enabled?
-*-available:El almacén donde guardas todas las configuraciones de tus sitios o módulos, estén o no en uso.
-*-enabled:La carpeta activa donde solo pones atajos a los archivos que quieres que Apache lea y ejecute.
+
+1.*-available:El almacén donde guardas todas las configuraciones de tus sitios o módulos, estén o no en uso.
+2.*-enabled:La carpeta activa donde solo pones atajos a los archivos que quieres que Apache lea y ejecute.
 
  ##    Apartado 6
        
@@ -157,6 +199,9 @@ curl http://sitio2.local
 ![cap9](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/8.5.png?raw=true)
 
 ¿Qué diferencia hay entre virtual hosts basados en nombre y basados en IP? ¿Cuál has usado?
+Los virtual hosts basados en IP asignan una dirección IP única a cada sitio web para identificarlos. En cambio, los basados en nombre permiten que varias webs compartan una sola IP, identificando cada sitio según el dominio solicitado en la cabecera HTTP.
+
+El más usado es el basado en nombre, ya que es el estándar para alojar múltiples webs en una sola IP.
 
 ## Apartado 9.
 ps aux | grep apache2
