@@ -48,9 +48,8 @@
 
 ![cap1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20apt%20install%20apache2%20-y.png?raw=true)
 
-  
-  ¿Qué paquetes adicionales se han instalado como dependencias? 
-  Apache
+¿Qué paquetes adicionales se han instalado como dependencias? 
+Se han instalado paquetes necesarios para que Apache funcione correctamente. Los paquetes exactos dependen de los que aparezcan en la terminal durante la instalación.
 
 ## Apartado 3
 
@@ -133,13 +132,13 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
        curl -I http://localhost:8080
  ![cap3](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/6.2%20.2.png?raw=true)
        
-**6.3 Se configura un nombre de servidor (ServerName) para evitar avisos y se aplica la configuración.**
+**6.3 Definir el nombre del servidor.**
        echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
        sudo a2enconf servername
        sudo systemctl reload apache2
 ![cap4](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/6.3.png?raw=true)
        
-**6.4 Definir nombre servidor.**
+**6.4 Cambiar el correo del administrador.**
 ![Cap5](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/6.4.png?raw=true)
 
 **6.5 Cambiar correo Administrador.**
