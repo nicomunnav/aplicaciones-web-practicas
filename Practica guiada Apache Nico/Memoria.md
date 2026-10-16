@@ -48,7 +48,7 @@
 
 ![cap1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20apt%20install%20apache2%20-y.png?raw=true)
 
-¿Qué paquetes adicionales se han instalado como dependencias? 
+#### ¿Qué paquetes adicionales se han instalado como dependencias? 
 Se han instalado paquetes necesarios para que Apache funcione correctamente. Los paquetes exactos dependen de los que aparezcan en la terminal durante la instalación.
 
 ## Apartado 3
@@ -65,10 +65,10 @@ sudo ufw allow 'Apache'
 
 ![cap2](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/sudo%20ufw%20status%20y%20sudo%20ufw%20allow%20'Apache'%20PASO%205!.png?raw=true)
 
-¿Qué diferencia hay entre los perfiles Apache, Apache Full y Apache Secure?
-Apache: Sirve para hacer pruebas
-Apache Secure:Se usa para obligar a todo el trafico sea seguro
-Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
+#### ¿Qué diferencia hay entre los perfiles Apache, Apache Full y Apache Secure?
+1.Apache: Sirve para hacer pruebas
+2.Apache Secure:Se usa para obligar a todo el trafico sea seguro
+3.Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
 
 ## Apartado 4
    1. **Iniciamos el servidor** = sudo systemctl start apache2
@@ -93,7 +93,7 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
    11. **Activa / desactiva sitios** =  a2ensite / a2dissite
    12. **Activa / desactiva fragmentos de configuración** = a2enconf / a2disconf
 
- ¿Cuándo conviene usar reload en lugar de restart?
+ #### ¿Cuándo conviene usar reload en lugar de restart?
  Reload:Cuando quieres que el servidor no pare de funcionar usaria esta opcion encambio si quieres que se pause un tiempo usaria restart
 
 ##     Apartado 5
@@ -114,7 +114,7 @@ Apache Full:Permite hacer uso de conexiones normales y seguras simultaneamente
  11. **Registro de accesos** = /var/log/apache2/access.log
  12. **Registro de errores** = /var/log/apache2/error.log
 
-¿Por qué Apache usa enlaces simbólicos entre los directorios *-available y *-enabled?
+#### ¿Por qué Apache usa enlaces simbólicos entre los directorios *-available y *-enabled?
 
 1.*-available:El almacén donde guardas todas las configuraciones de tus sitios o módulos, estén o no en uso.
 2.*-enabled:La carpeta activa donde solo pones atajos a los archivos que quieres que Apache lea y ejecute.
@@ -164,7 +164,7 @@ apache2ctl -M | grep -E "rewrite|headers|ssl"
 | `mod_dir`** | Gestiona la búsqueda de ficheros índice por defecto (como `index.html` o `index.php`) en los directorios. |
 
 
-**¿Qué ocurre si desactivas un módulo del que depende otro?** 
+#### ¿Qué ocurre si desactivas un módulo del que depende otro? 
 Si desactivas un módulo del que depende otro, Apache detectará el problema y no arrancará o fallará al intentar reiniciar el servicio, mostrando un error en los registros.
 
 ## Apartado 8
@@ -192,9 +192,8 @@ curl http://sitio1.local
 curl http://sitio2.local
 ![cap9](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/8.5.png?raw=true)
 
-¿Qué diferencia hay entre virtual hosts basados en nombre y basados en IP? ¿Cuál has usado?
-Los virtual hosts basados en IP asignan una dirección IP única a cada sitio web para identificarlos. En cambio, los basados en nombre permiten que varias webs compartan una sola IP, identificando cada sitio según el dominio solicitado en la cabecera HTTP.
-
+#### ¿Qué diferencia hay entre virtual hosts basados en nombre y basados en IP? ¿Cuál has usado?
+Los Virtual Hosts basados en nombre permiten tener varias páginas web con la misma dirección IP, diferenciándolas por el nombre del dominio. Los basados en IP utilizan direcciones IP diferentes para cada sitio. En esta práctica he utilizado Virtual Hosts basados en nombre, con sitio1.local y sitio2.local.
 El más usado es el basado en nombre, ya que es el estándar para alojar múltiples webs en una sola IP.
 
 ## Apartado 9.
@@ -212,3 +211,12 @@ curl http://sitio1.local
 sudo tail -n 20 /var/log/apache2/sitio1_error.log
 
 ![cap10](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/fotos/Apartado%209.png?raw=true)
+
+#### ¿Qué significan los permisos 755 y 644?
+El permiso 755 permite al propietario leer, escribir y ejecutar, mientras que los demás pueden leer y ejecutar. El permiso 644 permite al propietario leer y escribir, mientras que los demás solo pueden leer.
+
+#### ¿Por qué nunca se deben usar permisos 777 en un servidor web?
+Porque permiten que cualquier usuario pueda leer, escribir y ejecutar archivos. Esto puede provocar problemas de seguridad y permitir modificaciones no autorizadas.
+
+#### ¿Por qué el contenido web no debe pertenecer a root ni ser escribible por todos?
+Porque podría ser más difícil gestionar los archivos y, si alguien consigue acceso, podría modificar el contenido de la página. Es mejor utilizar permisos adecuados y un propietario apropiado.
