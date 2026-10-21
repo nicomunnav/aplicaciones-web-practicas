@@ -1,314 +1,186 @@
+# Práctica guiada MariaDB y PHP
+
+### Instalación y comprobación de MariaDB y PHP en Ubuntu 24.04
+
+<br>
+
 **Módulo:** Aplicaciones Web
 
 **Alumno:** Nicolás Muñoz Navarro
 
 **Curso:** 2 SMX
 
+<br>
+
 ---
 
 **Memoria de la actividad práctica**
-
-# Práctica MariaDB y PHP en Ubuntu 24.04
 
 ---
 
 # Índice
 
-1. [Preparación del sistema](#apartado-1-preparación-del-sistema)
-2. [Instalación de MariaDB](#apartado-2-instalación-de-mariadb)
-3. [Comprobación del funcionamiento](#apartado-3-comprobación-del-funcionamiento)
-4. [Comandos principales](#apartado-4-comandos-principales)
-5. [Qué pasa si MariaDB está parado](#apartado-5-qué-pasa-si-mariadb-está-parado)
-6. [Instalación de PHP](#apartado-6-instalación-de-php)
-7. [Comprobación final](#apartado-7-comprobación-final)
-8. [Conclusiones](#conclusiones)
+1. [Preparación del sistema](#apartado-1)
+2. [Instalación de MariaDB](#apartado-2)
+3. [Comprobación del funcionamiento](#apartado-3)
+4. [Comandos principales de administración](#apartado-4)
+5. [Comprobar qué pasa si MariaDB está parado](#apartado-5)
+6. [Instalación de PHP](#apartado-6)
+7. [Comprobación del funcionamiento de PHP](#apartado-7)
+8. [Conclusiones](#apartado-8)
 
 ---
 
-# Apartado 1. Preparación del sistema
+## Apartado 1
 
-Primero desactivamos los sitios virtuales anteriores y dejamos activo el sitio predeterminado de Apache.
+**Preparamos la instalación y comprobamos el sistema.**
 
-## Activar el sitio predeterminado
+- "sudo apt update"
 
-Comandos utilizados:
+Este comando actualiza la lista de paquetes disponibles para instalar.
 
-*sudo a2ensite 000-default.conf*
+---
 
-*sudo systemctl reload apache2*
+## Apartado 2
 
-Estos comandos activan el sitio predeterminado y recargan Apache para aplicar los cambios.
+**Instalamos MariaDB y comprobamos que se ha instalado correctamente.**
 
-## Actualizar el sistema
+- "sudo apt install mariadb-server"
+- "mariadb --version"
 
-Comandos utilizados:
+El primer comando instala MariaDB y el segundo muestra la versión instalada.
 
-*sudo apt update*
-
-*sudo apt upgrade -y*
-
-El primer comando actualiza la lista de paquetes y el segundo instala las actualizaciones disponibles.
-
-## Comprobar Apache
-
-Comando utilizado:
-
-*systemctl is-active apache2*
-
-El resultado esperado es active, que significa que Apache está funcionando.
-
-**Captura 1.** Comprobación de Apache.
+### Captura 1. Actualización e instalación
 
 ![Captura 1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/Captura%201%20Active%20.png)
 
----
-
-# Apartado 2. Instalación de MariaDB
-
-## Instalar MariaDB
-
-Comando utilizado:
-
-*sudo apt install mariadb-server -y*
-
-Este comando instala MariaDB, el programa que se encarga de gestionar las bases de datos.
-
-## Comprobar la versión
-
-Comando utilizado:
-
-*mariadb --version*
-
-Con este comando podemos ver la versión de MariaDB instalada.
-
-**Captura 2.** Versión de MariaDB.
+### Captura 2. Instalación de MariaDB
 
 ![Captura 2](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/Captura%202%20instalaci%C3%B3n%20mariadb.png)
 
 ---
 
-# Apartado 3. Comprobación del funcionamiento
+## Apartado 3
 
-## Comprobar el estado del servicio
+**Comprobamos el funcionamiento de MariaDB.**
 
-Comando utilizado:
+- "sudo systemctl status mariadb"
+- "sudo systemctl is-active mariadb"
 
-*sudo systemctl status mariadb*
+Con estos comandos podemos comprobar si el servicio está funcionando correctamente.
 
-Este comando muestra si MariaDB está funcionando. Debe aparecer active (running). Para salir, pulsamos la tecla q.
-
-## Comprobar el inicio automático
-
-Comando utilizado:
-
-*systemctl is-enabled mariadb*
-
-Este comando comprueba si MariaDB se inicia automáticamente al encender el equipo. Debe aparecer enabled.
-
-## Entrar en MariaDB
-
-Comando utilizado:
-
-*sudo mariadb*
-
-Este comando abre la consola de MariaDB y permite comprobar que podemos entrar.
-
-Para salir, escribimos *exit*.
-
-**Captura 3.** Estado del servicio y entrada en MariaDB.
+Si aparece `active`, significa que MariaDB está activo.
 
 ![Captura 3](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/Captura%203%20Estado%20MariaDB.png)
 
----
+#### ¿Para qué sirve el comando systemctl status?
 
-# Apartado 4. Comandos principales
-
-En este apartado aparecen algunos comandos que sirven para controlar MariaDB.
-
-**Consultar el estado del servicio**
-
-*systemctl is-active mariadb*
-
-Permite comprobar si MariaDB está funcionando.
-
-**Iniciar MariaDB**
-
-*sudo systemctl start mariadb*
-
-Inicia el servicio de MariaDB.
-
-**Detener MariaDB**
-
-*sudo systemctl stop mariadb*
-
-Detiene el servicio de MariaDB.
-
-**Reiniciar MariaDB**
-
-*sudo systemctl restart mariadb*
-
-Reinicia el servicio.
-
-**Entrar en MariaDB**
-
-*sudo mariadb*
-
-Permite entrar en la consola para trabajar con las bases de datos.
+Sirve para consultar el estado de un servicio y comprobar si está funcionando, detenido o si ha ocurrido algún error.
 
 ---
 
-# Apartado 5. ¿Qué pasa si MariaDB está parado?
+## Apartado 4
 
-## Detener el servicio
+**Comandos principales de administración de MariaDB.**
 
-Comando utilizado:
+1. **Iniciar el servicio** = "sudo systemctl start mariadb"
 
-*sudo systemctl stop mariadb*
+2. **Detener el servicio** = "sudo systemctl stop mariadb"
 
-Este comando detiene MariaDB para comprobar qué ocurre cuando no funciona.
+3. **Reiniciar el servicio** = "sudo systemctl restart mariadb"
 
-## Comprobar el estado
+4. **Consultar su estado** = "sudo systemctl status mariadb"
 
-Comando utilizado:
+5. **Activar el inicio automático** = "sudo systemctl enable mariadb"
 
-*systemctl is-active mariadb*
+6. **Desactivar el inicio automático** = "sudo systemctl disable mariadb"
 
-El resultado esperado es inactive, porque el servicio está parado.
+7. **Comprobar si está activo** = "sudo systemctl is-active mariadb"
 
-## Intentar entrar en MariaDB
+#### ¿Qué diferencia hay entre stop y disable?
 
-Comando utilizado:
+`stop` detiene el servicio en ese momento. `disable` evita que se inicie automáticamente al arrancar el sistema.
 
-*sudo mariadb*
+---
 
-Al estar parado el servicio, puede aparecer un error de conexión.
+## Apartado 5
 
-## Volver a arrancar MariaDB
+**Comprobamos qué pasa si MariaDB está parado.**
 
-Comandos utilizados:
+Primero detenemos el servicio:
 
-*sudo systemctl start mariadb*
+"sudo systemctl stop mariadb"
 
-*systemctl is-active mariadb*
+Después intentamos acceder a MariaDB:
 
-El primer comando arranca el servicio y el segundo comprueba que vuelve a funcionar. Debe aparecer active.
+"sudo mariadb"
 
-**Pregunta:** ¿Qué dos comandos usarías para saber si MariaDB está parado?
+Si el servicio está parado, no se podrá establecer una conexión con el servidor de bases de datos.
 
-**Respuesta:** Usaría *systemctl is-active mariadb* para comprobar el estado y *sudo mariadb* para intentar entrar en la base de datos.
+Para volver a utilizarlo, iniciamos el servicio:
 
-**Captura 4.** Error y recuperación del servicio.
+"sudo systemctl start mariadb"
+
+### Captura 4. Comprobar qué pasa si MariaDB está parado
 
 ![Captura 4](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/Captura%205%205.%20Comprobar%20qu%C3%A9%20pasa%20si%20MariaDB%20est%C3%A1%20parado.png)
 
+#### ¿Qué ocurre cuando detenemos MariaDB?
+
+El servidor deja de aceptar nuevas conexiones mientras está parado. Para volver a utilizar la base de datos, tenemos que iniciar el servicio otra vez.
+
 ---
 
-# Apartado 6. Instalación de PHP
+## Apartado 6
 
-## Instalar PHP y los paquetes necesarios
+**Instalamos PHP para poder utilizarlo con Apache.**
 
-Comando utilizado:
+- "sudo apt install php libapache2-mod-php"
 
-*sudo apt install php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-zip php-intl -y*
+Este comando instala PHP y el módulo que permite a Apache procesar archivos PHP.
 
-Este comando instala PHP y los paquetes necesarios para trabajar con Apache y MariaDB.
+Después comprobamos la versión instalada:
 
-## Comprobar la versión de PHP
-
-Comando utilizado:
-
-*php -v*
-
-Muestra la versión de PHP instalada.
-
-## Reiniciar Apache
-
-Comando utilizado:
-
-*sudo systemctl restart apache2*
-
-Reinicia Apache para que cargue los cambios.
-
-## Comprobar los módulos de Apache y PHP
-
-Comando utilizado:
-
-*sudo apache2ctl -M | grep -E "mpm|php"*
-
-Comprueba los módulos relacionados con Apache y PHP.
-
-## Comprobar los módulos de MySQL
-
-Comando utilizado:
-
-*php -m | grep -i mysql*
-
-Comprueba los módulos que permiten a PHP conectarse con MariaDB. Deben aparecer mysqli, mysqlnd y pdo_mysql.
-
-## Crear una página de prueba
-
-Comando utilizado:
-
-*echo '<?php phpinfo();' | sudo tee /var/www/html/info.php*
-
-Crea una página que muestra información de PHP.
-
-Para conocer la IP de Ubuntu, utilizamos el siguiente comando:
-
-*hostname -I*
-
-Después, abrimos en el navegador la dirección http://IP_DE_TU_SERVIDOR/info.php, sustituyendo el texto por la IP que aparezca en el terminal.
-
-## Borrar el archivo de prueba
-
-Comando utilizado:
-
-*sudo rm /var/www/html/info.php*
-
-Borra el archivo de prueba para no dejar información del servidor publicada.
-
-Para comprobar los archivos que quedan en la carpeta web, utilizamos:
-
-*ls /var/www/html*
-
-**Pregunta:** ¿Por qué es peligroso dejar info.php y para qué sirve php-mysql?
-
-**Respuesta:** info.php muestra información interna del servidor y podría ser utilizada por otras personas. El paquete php-mysql permite que PHP se conecte a MariaDB.
-
-**Captura 5.** Versión de PHP, módulos y página de prueba.
+- "php -v"
 
 ![Captura 5](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/Captura%206%20Instalacion%20PHP.png)
 
+#### ¿Para qué sirve PHP?
+
+PHP es un lenguaje de programación que permite crear páginas web dinámicas y procesar información en el servidor.
+
 ---
 
-# Apartado 7. Comprobación final
+## Apartado 7
 
-## Comprobar los servicios
+**Comprobamos que PHP funciona correctamente.**
 
-Comando utilizado:
+Creamos un archivo de prueba llamado `info.php` en el directorio web.
 
-*systemctl is-active apache2 mariadb*
+- "echo '<?php phpinfo();' | sudo tee /var/www/html/info.php"
 
-Los dos servicios deben mostrar active. En mi caso, ambos están funcionando correctamente.
+Después abrimos el navegador y accedemos a la siguiente dirección:
 
-## Comprobar PHP
+`http://localhost/info.php`
 
-Comando utilizado:
-
-*php -v*
-
-Este comando muestra la versión instalada. En mi caso, aparece PHP 8.3.6.
-
-**Captura 6.** Comprobación final de Apache, MariaDB y PHP.
+Si aparece la página con la información de PHP, significa que está funcionando correctamente con Apache.
 
 ![Captura 6](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/Captura%206%20Instalacion%20PHP.png)
 
+**Importante:** cuando terminemos la comprobación, es recomendable borrar el archivo de información de PHP, porque muestra detalles de la configuración del servidor.
+
+- "sudo rm /var/www/html/info.php"
+
+#### ¿Qué diferencia hay entre PHP y MariaDB?
+
+PHP permite ejecutar código en el servidor para crear páginas dinámicas. MariaDB sirve para almacenar y gestionar bases de datos.
+
 ---
 
-# Conclusiones
+## Apartado 8. Conclusiones
 
-En esta práctica he aprendido a instalar MariaDB y PHP en Ubuntu 24.04 y a comprobar que funcionan junto con Apache.
+Con esta práctica he aprendido a instalar MariaDB y PHP en Ubuntu 24.04.
 
-También he aprendido a controlar los servicios, comprobar sus versiones y solucionar un problema cuando MariaDB está parado.
+También he aprendido a comprobar el estado de los servicios, iniciarlos y detenerlos, y verificar que PHP funciona desde el navegador.
 
-Al terminar, el servidor está preparado para continuar con la instalación de WordPress.
+La práctica me ha servido para conocer mejor las herramientas que se utilizan para crear y gestionar páginas web.
