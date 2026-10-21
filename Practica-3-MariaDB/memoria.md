@@ -81,27 +81,9 @@ Sirve para consultar el estado de un servicio y comprobar si está funcionando, 
 
 ## Apartado 4
 
-**Comandos principales de administración de MariaDB.**
+![Captura 4](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/APARTADO%204.png)
 
-1. **Iniciar el servicio** = "sudo systemctl start mariadb"
 
-2. **Detener el servicio** = "sudo systemctl stop mariadb"
-
-3. **Reiniciar el servicio** = "sudo systemctl restart mariadb"
-
-4. **Consultar su estado** = "sudo systemctl status mariadb"
-
-5. **Activar el inicio automático** = "sudo systemctl enable mariadb"
-
-6. **Desactivar el inicio automático** = "sudo systemctl disable mariadb"
-
-7. **Comprobar si está activo** = "sudo systemctl is-active mariadb"
-
-#### ¿Qué diferencia hay entre stop y disable?
-
-`stop` detiene el servicio en ese momento. `disable` evita que se inicie automáticamente al arrancar el sistema.
-
----
 
 ## Apartado 5
 
