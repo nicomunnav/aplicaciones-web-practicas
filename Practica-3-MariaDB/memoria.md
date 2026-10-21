@@ -13,9 +13,7 @@
 <br>
 
 ---
-
 **Memoria de la actividad práctica**
-
 ---
 
 # Índice
