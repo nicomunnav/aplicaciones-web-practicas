@@ -11,7 +11,6 @@
 **Curso:** 2 SMX
 
 <br>
-
 ---
 **Memoria de la actividad práctica**
 ---
