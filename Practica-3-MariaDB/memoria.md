@@ -140,13 +140,11 @@ Creamos un archivo de prueba llamado `info.php` en el directorio web.
 
 Después abrimos el navegador y accedemos a la siguiente dirección:
 
-`http://localhost/info.php`
+- http://localhost/info.php
 
 Si aparece la página con la información de PHP, significa que está funcionando correctamente con Apache.
 
 ![Captura 6](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/fotos/Captura%206%20Instalacion%20PHP.png)
-
-**Importante:** cuando terminemos la comprobación, es recomendable borrar el archivo de información de PHP, porque muestra detalles de la configuración del servidor.
 
 - "sudo rm /var/www/html/info.php"
 
@@ -155,11 +153,3 @@ Si aparece la página con la información de PHP, significa que está funcionand
 PHP permite ejecutar código en el servidor para crear páginas dinámicas. MariaDB sirve para almacenar y gestionar bases de datos.
 
 ---
-
-## Apartado 8. Conclusiones
-
-Con esta práctica he aprendido a instalar MariaDB y PHP en Ubuntu 24.04.
-
-También he aprendido a comprobar el estado de los servicios, iniciarlos y detenerlos, y verificar que PHP funciona desde el navegador.
-
-La práctica me ha servido para conocer mejor las herramientas que se utilizan para crear y gestionar páginas web.
