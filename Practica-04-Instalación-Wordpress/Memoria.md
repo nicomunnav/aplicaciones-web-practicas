@@ -320,12 +320,5 @@ PHP: PHP 8.3, funcionando.
 
 WordPress: instalado en /var/www/html, funcionando y accesible desde el navegador.
 
----
 
-## Apartado 11
 
-**Conclusiones.**
-
-En esta práctica hemos instalado WordPress sobre Apache, PHP y MariaDB. He aprendido que WordPress es una web y por eso el servidor no necesita interfaz gráfica, y que guarda todo en la base de datos, así que sin MariaDB no funciona.
-
----
