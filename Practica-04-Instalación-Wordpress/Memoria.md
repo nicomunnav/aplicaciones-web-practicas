@@ -255,9 +255,6 @@ Después, en el panel de WordPress, fui a Ajustes, Enlaces permanentes y elegí 
 
 Ahora subimos el límite de subida de ficheros de PHP a 64 MB:
 
-- **printf 'upload_max_filesize = 64M\npost_max_size = 64M\n' | sudo tee /etc/php/8.3/apache2/conf.d/99-wordpress.ini**
-- **sudo systemctl restart apache2**
-
 ### Captura 13. Límite de subida de PHP
 
 ![Captura 13](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/8.2.png)
