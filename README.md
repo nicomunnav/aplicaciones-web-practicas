@@ -8,3 +8,4 @@ Repositorio con las memorias de las prácticas del módulo de Aplicaciones Web.
 | 1  | Introducción a HTML básico | [Ver memoria](https://github.com/Nicolasmun1234mun/aplicaciones-web-practicas/blob/main/ractica-01-html-%20basico/memoria.md) |
 | 2 | Instalación y configuracionde Apache | [Ver memoria](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica%20guiada%20Apache%20Nico/Memoria.md )|
 | 3| Instalación MariaDB| [Ver memoria](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-3-MariaDB/memoria.md )|
+| 4| Instalación WordPress| [Ver memoria](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Memoria.md )|
