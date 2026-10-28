@@ -46,7 +46,7 @@ El primer comando muestra la IP del servidor, que es 192.168.56.22. El segundo n
 
 ### Captura 1. Conexión SSH y comprobación del servidor
 
-![Captura 1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Captura_1.png)
+![Captura 1](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Captura%201.png)
 
 #### ¿Qué dos puertas usamos para trabajar con el servidor?
 
@@ -104,7 +104,7 @@ Con este comando entramos con el nuevo usuario para comprobar que funciona.
 
 ### Captura 4. Base de datos y usuario de WordPress
 
-![Captura 4](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Captura_4.png)
+![Captura 4](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Captura%204.png)
 
 #### ¿Por qué WordPress usa wp_user y no root?
 
@@ -179,7 +179,7 @@ Abrimos la web en http://192.168.56.22 y el panel en http://192.168.56.22/wp-adm
 
 ### Captura 6. Tablas de WordPress
 
-![Captura 6](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Apartado_6_4.png)
+![Captura 6](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Apartado%206.4.png)
 
 Salen las tablas que ha creado WordPress y todas empiezan por wp_. wp_posts guarda las entradas, wp_users los usuarios y wp_options la configuración del sitio.
 
@@ -206,11 +206,11 @@ Así WordPress usa siempre la dirección con la que entramos a la web.
 
 ### Captura 7. Líneas añadidas en wp-config.php
 
-![Captura 7](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap_7.png)
+![Captura 7](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap%207.png)
 
 ### Captura 8. Comprobación con php -l
 
-![Captura 8](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap_7_2.png)
+![Captura 8](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap%207.2.png)
 
 ---
 
@@ -230,7 +230,7 @@ Y escribimos dentro:
 
 ### Captura 9. Fichero wordpress.conf
 
-![Captura 9](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap_8_1.png)
+![Captura 9](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap%208.1.png)
 
 - **sudo a2enmod rewrite**
 - **sudo a2enconf wordpress**
@@ -239,19 +239,19 @@ Y escribimos dentro:
 
 ### Captura 10. Activación de la configuración
 
-![Captura 10](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/8_1_2.png)
+![Captura 10](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/8.1.2.png)
 
 Después, en el panel de WordPress, fui a Ajustes, Enlaces permanentes y elegí "Nombre de la entrada".
 
 ### Captura 11. Enlaces permanentes
 
-![Captura 11](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap_8_1_3.png)
+![Captura 11](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap%208.1.3.png)
 
 - **ls -la /var/www/html/.htaccess**
 
 ### Captura 12. Fichero .htaccess
 
-![Captura 12](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/8_1_4.png)
+![Captura 12](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/8.1.4.png)
 
 Ahora subimos el límite de subida de ficheros de PHP a 64 MB:
 
@@ -260,7 +260,7 @@ Ahora subimos el límite de subida de ficheros de PHP a 64 MB:
 
 ### Captura 13. Límite de subida de PHP
 
-![Captura 13](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/8_2.png)
+![Captura 13](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/8.2.png)
 
 #### ¿Por qué las direcciones bonitas dan error 404 si Apache no puede leer el .htaccess?
 
@@ -287,7 +287,7 @@ Sale el error de conexión con la base de datos porque WordPress no puede funcio
 
 ### Captura 15. MariaDB arrancado y web funcionando
 
-![Captura 15](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap9_2.png)
+![Captura 15](https://github.com/nicomunnav/aplicaciones-web-practicas/blob/main/Practica-04-Instalaci%C3%B3n-Wordpress/Foto/Cap9.2.png)
 
 #### ¿Qué dos cosas comprobarías si sale ese error y en qué orden?
 
@@ -322,3 +322,10 @@ WordPress: instalado en /var/www/html, funcionando y accesible desde el navegado
 
 ---
 
+## Apartado 11
+
+**Conclusiones.**
+
+En esta práctica hemos instalado WordPress sobre Apache, PHP y MariaDB. He aprendido que WordPress es una web y por eso el servidor no necesita interfaz gráfica, y que guarda todo en la base de datos, así que sin MariaDB no funciona.
+
+---
